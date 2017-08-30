@@ -1164,4 +1164,17 @@ public class AddressBook {
         return new ArrayList<>(Arrays.asList(toSplit.trim().split("\\s+")));
     }
 
+    /**
+     * Converts all the words inside the collection to lowercase
+     *
+     * @param words to be converted
+     */
+    private static void convertWordsToLowerCase(Collection<String> words) {
+        final Collection<String> copyOfWords = new HashSet<>(words);
+        words.clear(); // this method prevents ConcurrentModificationException
+        for(String word : copyOfWords) {
+            words.add(word.toLowerCase());
+        }
+    }
+
 }
